@@ -84,6 +84,18 @@ También es posible mostrar diagramas...
 
 ![diagram](./Docs/diagrama.png)
 
+Mejor que insertando imágenes, se puede usar Mermaid:
+
+```mermaid
+stateDiagram
+    [*] --> Inicio
+    Inicio --> Juego
+    Juego --> Muerte
+    Juego --> Victoria
+    Muerte --> Inicio
+    Victoria --> Inicio
+```
+
 ## ***- Pruebas y métricas***
 
 - [Vídeo con la batería de pruebas](https://youtu.be/xxxxx)
