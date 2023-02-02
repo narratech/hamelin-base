@@ -1,11 +1,11 @@
-# **IAV - Base para la Práctica 1.**
+# IAV - Base para la Práctica 1
 
-## ***- Autores***
+## Autores
 - Nombre completo (Usuario GitHub)
 - Nombre completo (Usuario GitHub)
 - Nombre completo (Usuario GitHub)
 
-## ***- Propuesta***
+## Propuesta
 Esta práctica consiste en... 
 
 El avatar del jugador será el **flautista**, que...
@@ -14,13 +14,13 @@ Las **ratas** tendrán el siguiente comportamiento:...
 
 ...
 
-## ***- Punto de partida***
+## Punto de partida
 Se parte de un proyecto base de Unity proporcionado por el profesor aquí:
 https://github.com/Narratech/IAV-P1
 
 Consiste en... 
 
-## ***- Diseño de la solución***
+## Diseño de la solución
 
 Lo que vamos a realizar para resolver esta práctica es...
 
@@ -96,17 +96,17 @@ stateDiagram
     Victoria --> Inicio
 ```
 
-## ***- Pruebas y métricas***
+## Pruebas y métricas
 
 - [Vídeo con la batería de pruebas](https://youtu.be/xxxxx)
 
-## ***- Ampliaciones***
+## Ampliaciones
 
 Se han realizado las siguientes ampliaciones
 
 - Los obstáculos del escenario se colocan...
 
-## ***- Producción***
+## Producción
 
 Las tareas se han realizado y el esfuerzo ha sido repartido entre los autores.
 
@@ -121,7 +121,7 @@ Las tareas se han realizado y el esfuerzo ha sido repartido entre los autores.
 | :x: | Menú | 3-12-2022 |
 | :x: | HUD | 12-12-2022 |
 
-## ***- Referencias ***
+## Referencias
 
 Los recursos de terceros utilizados son de uso público.
 
