@@ -98,6 +98,7 @@ stateDiagram
 
 ## Pruebas y métricas
 
+Plan de pruebas dividido por características (C1, C2 y C3 serían las 3 pruebas que se han realizado de la característica C)
 - [Vídeo con la batería de pruebas](https://youtu.be/xxxxx)
 
 ## Ampliaciones
