@@ -96,6 +96,8 @@ stateDiagram
     Victoria --> Inicio
 ```
 
+Para dibujar espacios de coordenadas 2D con puntos y vectores, se podría incrustar una imagen de Google Draw, o intentar incrustarlo en el repositorio también con Mermaid. 
+
 ## Pruebas y métricas
 
 Plan de pruebas dividido por características (C1, C2 y C3 serían las 3 pruebas que se han realizado de la característica C)
