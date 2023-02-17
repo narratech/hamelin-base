@@ -111,7 +111,7 @@ Se han realizado las siguientes ampliaciones
 
 ## Producción
 
-Las tareas se han realizado y el esfuerzo ha sido repartido entre los autores.
+Las tareas se han realizado y el esfuerzo ha sido repartido entre los autores. Esto se podrá documentar en una tabla como esta o usando la [pestaña de Proyectos](https://github.com/orgs/Narratech/projects/4/views/1) de GitHub.
 
 | Estado  |  Tarea  |  Fecha  |  
 |:-:|:--|:-:|
