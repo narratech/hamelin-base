@@ -89,9 +89,9 @@ Mejor que insertando imágenes, se puede usar Mermaid:
 ```mermaid
 stateDiagram
     [*] --> Inicio
-    Inicio --> Juego
-    Juego --> Muerte
-    Juego --> Victoria
+    Inicio --> Juego : Pulsar 'Jugar'
+    Juego --> Muerte : Tocado por el Enemigo
+    Juego --> Victoria : Coger el Ladrillo Dorado
     Muerte --> Inicio
     Victoria --> Inicio
 ```
