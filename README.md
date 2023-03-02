@@ -6,13 +6,10 @@
 - Nombre completo (Usuario GitHub)
 
 ## Propuesta
+El enunciado original de la práctica es [Plaga de Ratas](https://narratech.com/es/inteligencia-artificial-para-videojuegos/percepcion-y-movimiento/plaga-de-ratas/) de la asignatura de Inteligencia Artificial para Videojuegos del Grado en Desarrollo de Videojuegos de la UCM.
+
 Esta práctica consiste en... 
-
-El avatar del jugador será el **flautista**, que...
-
-Las **ratas** tendrán el siguiente comportamiento:...
-
-...
+(Explicación breve de que el avatar del jugador será el **flautista**, que hay **ratas** con un cierto comportamiento, etc.)
 
 ## Punto de partida
 Se parte de un proyecto base de Unity proporcionado por el profesor aquí:
