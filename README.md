@@ -12,10 +12,10 @@ Esta práctica consiste en...
 (Explicación breve de que el avatar del jugador será el **flautista**, que hay **ratas** con un cierto comportamiento, etc.)
 
 ## Punto de partida
-Se parte de un proyecto base de Unity proporcionado por el profesor aquí:
-https://github.com/Narratech/IAV-P1
+Se parte de un proyecto base de Unity 2021 proporcionado por el profesor y disponible en este repositorio: [IAV-Movimiento](https://github.com/Narratech/IAV-P1)
 
 Consiste en... 
+(Explicación detallada de las clases y los métodos ya implementados)
 
 ## Diseño de la solución
 
