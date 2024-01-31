@@ -10,6 +10,7 @@
 */
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -59,6 +60,29 @@ namespace UCM.IAV.Movimiento
             }
         }
 
+        // Lo primero que se llama al activarse (tras el Awake)
+        void OnEnable()
+        {
+
+            // No necesito este delegado
+            //SceneManager.activeSceneChanged += OnSceneWasSwitched;
+
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+
+        // Delegado para hacer cosas cuando una escena termina de cargar (no necesariamente cuando ha cambiado/switched)
+        // Antiguamente se usaba un método del SceneManager llamado OnLevelWasLoaded(int level), ahora obsoleto
+        void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            rataGO = GameObject.Find("Ratas");
+            ratText = GameObject.Find("NumRats").GetComponent<Text>();
+            fRText = GameObject.Find("Framerate").GetComponent<Text>();
+            numRats = rataGO.transform.childCount;
+            ratText.text = numRats.ToString();
+
+        }
+
+        // Se llama para poner en marcha el gestor
         private void Start()
         {
             rataGO = GameObject.Find("Ratas");
@@ -67,15 +91,12 @@ namespace UCM.IAV.Movimiento
             ratText.text = numRats.ToString();
         }
 
-        // Sustituir este viejo método por una solución más actual...
-        private void OnLevelWasLoaded(int level)
-        {
-            rataGO = GameObject.Find("Ratas");
-            ratText = GameObject.Find("NumRats").GetComponent<Text>();
-            fRText = GameObject.Find("Framerate").GetComponent<Text>();
-            numRats = rataGO.transform.childCount;
-            ratText.text = numRats.ToString();
+        // Se llama cuando el juego ha terminado
+        void OnDisable()
+        { 
+            SceneManager.sceneLoaded -= OnSceneLoaded;
         }
+
 
         // Update is called once per frame
         void Update()
