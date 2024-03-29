@@ -1,5 +1,8 @@
 # IAV - Base para la Práctica 1
 
+> [!AVISO]
+> Incluir un aviso como este si se han realizado cambios significativos en la documentación con respecto a la revisión anterior.
+
 ## Autores
 - Nombre completo (Usuario GitHub)
 - Nombre completo (Usuario GitHub)
