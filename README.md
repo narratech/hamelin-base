@@ -1,6 +1,6 @@
 # IAV - Base para la Práctica 1
 
-> [!AVISO]
+> [!NOTE]
 > Incluir un aviso como este si se han realizado cambios significativos en la documentación con respecto a la revisión anterior.
 
 ## Autores
