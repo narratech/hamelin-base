@@ -1,5 +1,5 @@
 /*    
-   Copyright (C) 2020-2023 Federico Peinado
+   Copyright (C) 2020-2025 Federico Peinado
    http://www.federicopeinado.com
 
    Este fichero forma parte del material de la asignatura Inteligencia Artificial para Videojuegos.
@@ -30,14 +30,14 @@ namespace UCM.IAV.Movimiento
         //[SerializeField]
         //Separacion perroSepar;
 
-        private AudioSource audio;
+        private AudioSource audioSource; // Se supone que ya hay un Component.audio que heredamos
 
         // Start is called before the first frame update
         void Start()
         {
-            audio = transform.gameObject.GetComponent<AudioSource>();
-            audio.playOnAwake = false;
-            audio.loop = true;
+            audioSource = transform.gameObject.GetComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+            audioSource.loop = true;
 
             trigger = transform.gameObject.AddComponent<SphereCollider>();
             trigger.isTrigger = true;
@@ -61,7 +61,7 @@ namespace UCM.IAV.Movimiento
                 isActive = true; // activamos el trigger
                 trigger.enabled = true;
 
-                audio.Play(); // activamos sonido de flauta
+                audioSource.Play(); // activamos sonido de flauta
             }
             else if (Input.GetKeyUp(KeyCode.Space)) // si dejamos de tocar la flauta
             {
@@ -77,7 +77,7 @@ namespace UCM.IAV.Movimiento
                         deactivateFollowing(rat);
                 rats.Clear();
 
-                audio.Pause(); // paramos sonido de flauta
+                audioSource.Pause(); // paramos sonido de flauta
             }
         }
 

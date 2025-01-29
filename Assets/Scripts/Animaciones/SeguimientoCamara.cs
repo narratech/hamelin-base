@@ -1,5 +1,5 @@
 /*    
-   Copyright (C) 2020-2023 Federico Peinado
+   Copyright (C) 2020-2025 Federico Peinado
    http://www.federicopeinado.com
 
    Este fichero forma parte del material de la asignatura Inteligencia Artificial para Videojuegos.

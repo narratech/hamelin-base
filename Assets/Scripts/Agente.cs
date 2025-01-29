@@ -1,5 +1,5 @@
 /*    
-   Copyright (C) 2020-2023 Federico Peinado
+   Copyright (C) 2020-2025 Federico Peinado
    http://www.federicopeinado.com
 
    Este fichero forma parte del material de la asignatura Inteligencia Artificial para Videojuegos.
@@ -13,12 +13,13 @@ namespace UCM.IAV.Movimiento {
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using UnityEngine; 
+    using UnityEngine;
 
-/// <summary>
-/// La clase Agente es responsable de modelar los agentes y gestionar todos los comportamientos asociados para combinarlos (si es posible) 
-/// </summary>
-    public class Agente : MonoBehaviour {
+    /// <summary>
+    /// La clase Agente es responsable de modelar los agentes y gestionar todos los comportamientos asociados para combinarlos (si es posible).
+    /// </summary>
+    public class Agente : MonoBehaviour 
+    {
         /// <summary>
         /// Combinar por peso
         /// </summary>
@@ -80,16 +81,16 @@ namespace UCM.IAV.Movimiento {
         public float orientacion;
 
         /// <summary>
-        /// Valor de dirección (instrucciones de movimiento)
+        /// Valor del comportamiento de dirección (instrucciones de movimiento)
         /// </summary>
-        [Tooltip("Dirección (instrucciones de movimiento)")]
-        protected Direccion direccion;
+        [Tooltip("Comportamiento de dirección (instrucciones de movimiento)")]
+        protected ComportamientoDireccion direccion;
 
         /// <summary>
         /// Grupos de direcciones, organizados según su prioridad
         /// </summary>
         [Tooltip("Grupos de direcciones")]
-        private Dictionary<int, List<Direccion>> grupos;
+        private Dictionary<int, List<ComportamientoDireccion>> grupos;
 
         /// <summary>
         /// Componente de cuerpo rígido (si la tiene el agente)
@@ -117,8 +118,8 @@ namespace UCM.IAV.Movimiento {
             // Descomentar estas líneas si queremos ignorar los valores iniciales de velocidad y rotación
             //velocidad = Vector3.zero; 
             //rotacion = 0.0f
-            direccion = new Direccion();
-            grupos = new Dictionary<int, List<Direccion>>();
+            direccion = new ComportamientoDireccion();
+            grupos = new Dictionary<int, List<ComportamientoDireccion>>();
 
             cuerpoRigido = GetComponent<Rigidbody>();
         }
@@ -207,7 +208,7 @@ namespace UCM.IAV.Movimiento {
         {
             if (combinarPorPrioridad)
             {
-                direccion = GetPrioridadDireccion();
+                direccion = GetPrioridadComportamientoDireccion();
                 grupos.Clear();
             }
 
@@ -237,14 +238,14 @@ namespace UCM.IAV.Movimiento {
             transform.LookAt(transform.position + velocidad);
 
             // Se deja la dirección vacía para el próximo fotograma
-            direccion = new Direccion();
+            direccion = new ComportamientoDireccion();
         }
 
 
         /// <summary>
         /// Establece la dirección tal cual
         /// </summary>
-        public void SetDireccion(Direccion direccion)
+        public void SetComportamientoDireccion(ComportamientoDireccion direccion)
         {
             this.direccion = direccion;
         }
@@ -254,7 +255,7 @@ namespace UCM.IAV.Movimiento {
         /// </summary>
         /// <param name="direccion"></param>
         /// <param name="peso"></param>
-        public void SetDireccion(Direccion direccion, float peso)
+        public void SetComportamientoDireccion(ComportamientoDireccion direccion, float peso)
         {
             this.direccion.lineal += (peso * direccion.lineal);
             this.direccion.angular += (peso * direccion.angular);
@@ -265,11 +266,11 @@ namespace UCM.IAV.Movimiento {
         /// </summary>
         /// <param name="direccion"></param>
         /// <param name="prioridad"></param>
-        public void SetDireccion(Direccion direccion, int prioridad)
+        public void SetComportamientoDireccion(ComportamientoDireccion direccion, int prioridad)
         {
             if (!grupos.ContainsKey(prioridad))
             {
-                grupos.Add(prioridad, new List<Direccion>());
+                grupos.Add(prioridad, new List<ComportamientoDireccion>());
             }
             grupos[prioridad].Add(direccion);
         }
@@ -278,20 +279,24 @@ namespace UCM.IAV.Movimiento {
         /// Devuelve el valor de dirección calculado por prioridad
         /// </summary>
         /// <returns></returns>
-        private Direccion GetPrioridadDireccion()
+        private ComportamientoDireccion GetPrioridadComportamientoDireccion()
         {
-            Direccion direccion = new Direccion();
+            ComportamientoDireccion direccion = new ComportamientoDireccion();
             List<int> gIdList = new List<int>(grupos.Keys);
             gIdList.Sort();
             foreach (int gid in gIdList)
             {
-                direccion = new Direccion();
-                foreach (Direccion direccionIndividual in grupos[gid])
+                ComportamientoDireccion direccionGrupo = new ComportamientoDireccion();
+                foreach (ComportamientoDireccion direccionIndividual in grupos[gid])
                 {
-                    // Dentro del grupo la mezcla es por peso
-                    direccion.lineal += direccionIndividual.lineal;
-                    direccion.angular += direccionIndividual.angular;
+                    // Dentro del grupo la mezcla debería ser por peso
+                    direccionGrupo.lineal += direccionIndividual.lineal;
+                    direccionGrupo.angular += direccionIndividual.angular;
                 }
+                // Acumular la dirección del grupo
+                direccion.lineal += direccionGrupo.lineal;
+                direccion.angular += direccionGrupo.angular;
+
                 // Sólo si el resultado supera un umbral, entonces nos quedamos con esta salida y dejamos de mirar grupos con menos prioridad
                 if (direccion.lineal.magnitude > umbralPrioridad
                      || Mathf.Abs(direccion.angular) > umbralPrioridad)

@@ -1,5 +1,5 @@
 /*    
-   Copyright (C) 2020-2023 Federico Peinado
+   Copyright (C) 2020-2025 Federico Peinado
    http://www.federicopeinado.com
 
    Este fichero forma parte del material de la asignatura Inteligencia Artificial para Videojuegos.
@@ -48,21 +48,27 @@ namespace UCM.IAV.Movimiento
         /// </summary>
         public virtual void Update()
         {
+            if (agente == null)
+            {
+                Debug.LogWarning("Agente no encontrado en " + gameObject.name);
+                return;
+            }
+
             if (agente.combinarPorPeso)
-                agente.SetDireccion(GetDireccion(), peso);
+                agente.SetComportamientoDireccion(GetComportamientoDireccion(), peso);
             else if (agente.combinarPorPrioridad)
-                agente.SetDireccion(GetDireccion(), prioridad);
+                agente.SetComportamientoDireccion(GetComportamientoDireccion(), prioridad);
             else
-                agente.SetDireccion(GetDireccion());
+                agente.SetComportamientoDireccion(GetComportamientoDireccion());
         }
 
         /// <summary>
-        /// Devuelve la direccion calculada
+        /// Devuelve el comportamiento de dirección calculado
         /// </summary>
         /// <returns></returns>
-        public virtual Direccion GetDireccion()
+        public virtual ComportamientoDireccion GetComportamientoDireccion()
         {
-            return new Direccion();
+            return new ComportamientoDireccion();
         }
 
         /// <summary>

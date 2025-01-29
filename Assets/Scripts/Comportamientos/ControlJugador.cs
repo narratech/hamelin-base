@@ -1,5 +1,5 @@
 /*    
-   Copyright (C) 2020-2023 Federico Peinado
+   Copyright (C) 2020-2025 Federico Peinado
    http://www.federicopeinado.com
 
    Este fichero forma parte del material de la asignatura Inteligencia Artificial para Videojuegos.
@@ -22,9 +22,9 @@ namespace UCM.IAV.Movimiento
         /// </summary>
         /// <returns></returns>
 
-        public override Direccion GetDireccion()
+        public override ComportamientoDireccion GetComportamientoDireccion()
         {
-            Direccion direccion = new Direccion();
+            ComportamientoDireccion direccion = new ComportamientoDireccion();
             
             //Direccion actual
             direccion.lineal.x = Input.GetAxis("Horizontal");

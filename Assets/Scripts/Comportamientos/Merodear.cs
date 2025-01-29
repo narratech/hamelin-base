@@ -1,5 +1,5 @@
 /*    
-   Copyright (C) 2020-2023 Federico Peinado
+   Copyright (C) 2020-2025 Federico Peinado
    http://www.federicopeinado.com
 
    Este fichero forma parte del material de la asignatura Inteligencia Artificial para Videojuegos.
@@ -29,11 +29,15 @@ namespace UCM.IAV.Movimiento
         float t = 3.0f;
         float actualT = 2.0f;
 
-        Direccion lastDir = new Direccion();
+        ComportamientoDireccion lastDir = new ComportamientoDireccion();
 
-        public override Direccion GetDireccion(){
+        public override ComportamientoDireccion GetComportamientoDireccion(){
             // IMPLEMENTAR merodear
-            return new Direccion();
+            tiempoMinimo = 1.0f; // por ejemplo
+            tiempoMaximo = 2.0f; // por ejemplo
+            actualT = 2.0f; // por ejemplo
+            t = 3.0f; // por ejemplo    
+            return new ComportamientoDireccion();
         }
 
     }

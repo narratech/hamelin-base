@@ -1,5 +1,5 @@
 ﻿/*    
-   Copyright (C) 2020-2023 Federico Peinado
+   Copyright (C) 2020-2025 Federico Peinado
    http://www.federicopeinado.com
 
    Este fichero forma parte del material de la asignatura Inteligencia Artificial para Videojuegos.
@@ -20,10 +20,10 @@ namespace UCM.IAV.Movimiento
         /// Obtiene la dirección
         /// </summary>
         /// <returns></returns>
-        public override Direccion GetDireccion()
+        public override ComportamientoDireccion GetComportamientoDireccion()
         {
             // IMPLEMENTAR HUIR
-            return new Direccion();
+            return new ComportamientoDireccion();
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿/*    
-   Copyright (C) 2020-2023 Federico Peinado
+   Copyright (C) 2020-2025 Federico Peinado
    http://www.federicopeinado.com
 
    Este fichero forma parte del material de la asignatura Inteligencia Artificial para Videojuegos.
@@ -17,13 +17,13 @@ namespace UCM.IAV.Movimiento
     using UnityEngine;
 
     /// <summary>
-    /// Clase auxiliar para representar la dirección (instrucciones) con la que corregir el movimiento dinámicamente, mediante aceleraciones.
+    /// Clase auxiliar para representar el comportamiento de dirección que debe usarse como guía para corregir dinámicamente (mediante aceleraciones) el movimiento del agente.
     /// </summary>
-    public class Direccion
+    public class ComportamientoDireccion
     {
         public float angular;
         public Vector3 lineal;
-        public Direccion()
+        public ComportamientoDireccion()
         {
             angular = 0.0f;
             lineal = new Vector3();

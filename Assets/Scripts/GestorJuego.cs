@@ -1,5 +1,5 @@
 /*    
-   Copyright (C) 2020-2023 Federico Peinado
+   Copyright (C) 2020-2025 Federico Peinado
    http://www.federicopeinado.com
 
    Este fichero forma parte del material de la asignatura Inteligencia Artificial para Videojuegos.
@@ -10,7 +10,7 @@
 */
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
+//using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -154,7 +154,18 @@ namespace UCM.IAV.Movimiento
             if (rataPrefab == null || rataGO == null)
                 return;
 
-            Instantiate(rataPrefab, rataGO.transform).GetComponent<Separacion>().targEmpty = rataGO;
+ 
+            GameObject nuevaRata = Instantiate(rataPrefab, rataGO.transform);
+            Separacion separacion = nuevaRata.GetComponent<Separacion>();
+
+            if (separacion != null)
+            {
+                separacion.targEmpty = rataGO;
+            }
+            else
+            {
+                Debug.LogError("El componente 'Separacion' no se encontró en el objeto instanciado.");
+            }
 
             numRats++;
             ratText.text = numRats.ToString();

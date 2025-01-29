@@ -1,5 +1,5 @@
 /*    
-   Copyright (C) 2020-2023 Federico Peinado
+   Copyright (C) 2020-2025 Federico Peinado
    http://www.federicopeinado.com
 
    Este fichero forma parte del material de la asignatura Inteligencia Artificial para Videojuegos.
@@ -35,10 +35,11 @@ namespace UCM.IAV.Movimiento
 
         // El tiempo en el que conseguir la aceleracion objetivo
         float timeToTarget = 0.1f;
-        public override Direccion GetDireccion()
+        public override ComportamientoDireccion GetComportamientoDireccion()
         {
             // IMPLEMENTAR llegada
-            return new Direccion();
+            timeToTarget = 0.1f; //por ejemplo
+            return new ComportamientoDireccion();
         }
 
 

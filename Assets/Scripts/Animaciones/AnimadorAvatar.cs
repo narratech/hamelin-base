@@ -1,5 +1,5 @@
 /*    
-   Copyright (C) 2020-2023 Federico Peinado
+   Copyright (C) 2020-2025 Federico Peinado
    http://www.federicopeinado.com
 
    Este fichero forma parte del material de la asignatura Inteligencia Artificial para Videojuegos.
@@ -15,8 +15,8 @@ using UnityEngine;
 public class AnimadorAvatar: MonoBehaviour
 {
 
-    Animator animator;
-    Rigidbody rigidbody;
+    private Animator animator;
+    private new Rigidbody rigidbody; //Estoy ocultando intencionalmente el miembro heredado rigidbody de MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
