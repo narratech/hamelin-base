@@ -74,9 +74,10 @@ namespace UCM.IAV.Movimiento
         // Antiguamente se usaba un método del SceneManager llamado OnLevelWasLoaded(int level), ahora obsoleto
         void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            rataGO = GameObject.Find("Ratas");
-            ratText = GameObject.Find("NumRats").GetComponent<Text>();
-            fRText = GameObject.Find("Framerate").GetComponent<Text>();
+            // Esto sería mejor vincularlo en la escena y no 'a pelo' desde aquí
+            rataGO = GameObject.Find("Ratas"); // El objeto que aglutina todas las ratas
+            ratText = GameObject.Find("RatasNumero").GetComponent<Text>();
+            fRText = GameObject.Find("RatioNumero").GetComponent<Text>();
             numRats = rataGO.transform.childCount;
             ratText.text = numRats.ToString();
 
@@ -87,6 +88,7 @@ namespace UCM.IAV.Movimiento
         {
             rataGO = GameObject.Find("Ratas");
             Application.targetFrameRate = frameRate;
+            // Quizá esto ya se hace en OnSceneLoaded
             numRats = rataGO.transform.childCount;
             ratText.text = numRats.ToString();
         }
