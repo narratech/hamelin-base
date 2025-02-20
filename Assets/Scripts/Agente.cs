@@ -120,6 +120,7 @@ namespace UCM.IAV.Movimiento {
             //rotacion = 0.0f
             direccion = new ComportamientoDireccion();
             grupos = new Dictionary<int, List<ComportamientoDireccion>>();
+            orientacion = transform.eulerAngles.y; // La orientación inicial es la real
 
             cuerpoRigido = GetComponent<Rigidbody>();
         }
