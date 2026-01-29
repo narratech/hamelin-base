@@ -3,7 +3,7 @@
    http://www.federicopeinado.com
 
    Este fichero forma parte del material de la asignatura Inteligencia Artificial para Videojuegos.
-   Esta asignatura se imparte en la Facultad de Informática de la Universidad Complutense de Madrid (España).
+   Esta asignatura se imparte en la Facultad de Informï¿½tica de la Universidad Complutense de Madrid (Espaï¿½a).
 
    Autor: Federico Peinado 
    Contacto: email@federicopeinado.com
@@ -31,7 +31,7 @@ public class AnimadorAnimal: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rigid.velocity.magnitude >= threshold)
+        if (rigid.linearVelocity.magnitude >= threshold)
             animator.SetBool("Moving", true);
         else
             animator.SetBool("Moving", false);
