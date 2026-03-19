@@ -134,8 +134,8 @@ namespace UCM.IAV.Movimiento {
             if (cuerpoRigido.isKinematic)
                 return; // El movimiento ser� cinem�tico, fotograma a fotograma con Update
 
-            // Limitamos la aceleraci�n al m�ximo que acepta este agente (aunque normalmente vendr� ya limitada)
-            if (direccion.lineal.sqrMagnitude > aceleracionMax)
+            // Limitamos la aceleraci�n al m�ximo que acepta este agente (aunque normalmente vendr� ya limitada); evitamos hacer raices cuadradas
+            if (direccion.lineal.sqrMagnitude > aceleracionMax * aceleracionMax)
                 direccion.lineal = direccion.lineal.normalized * aceleracionMax; 
 
             // La opci�n por defecto ser�a usar ForceMode.Force, pero eso implicar�a que el comportamiento de direcci�n tuviese en cuenta la masa a la hora de calcular la aceleraci�n que se pide
@@ -217,9 +217,9 @@ namespace UCM.IAV.Movimiento {
                 return; // El movimiento ser� din�mico, controlado por la f�sica y FixedUpdate
             }
 
-            // Limitamos la aceleraci�n al m�ximo que acepta este agente (aunque normalmente vendr� ya limitada)
-            if (direccion.lineal.sqrMagnitude > aceleracionMax)
-                direccion.lineal = direccion.lineal.normalized * aceleracionMax;
+            // Limitamos la aceleraci�n al m�ximo que acepta este agente (aunque normalmente vendr� ya limitada); evitamos hacer raices cuadradas
+            if (direccion.lineal.sqrMagnitude > aceleracionMax * aceleracionMax)
+                direccion.lineal = direccion.lineal.normalized * aceleracionMax; 
 
             // Limitamos la aceleraci�n angular al m�ximo que acepta este agente (aunque normalmente vendr� ya limitada)
             if (direccion.angular > aceleracionAngularMax)
