@@ -174,8 +174,8 @@ namespace UCM.IAV.Movimiento {
             if (!cuerpoRigido.isKinematic)
                 return; // El movimiento ser� din�mico, controlado por la f�sica y FixedUpdate
 
-            // Limito la velocidad lineal antes de empezar
-            if (velocidad.magnitude > velocidadMax)
+            // Limito la velocidad lineal antes de empezar; evitamos hacer raices cuadradas
+            if (velocidad.sqrMagnitude > velocidadMax * velocidadMax)
                 velocidad= velocidad.normalized * velocidadMax;
 
             // Limito la velocidad angular antes de empezar
